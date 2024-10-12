@@ -1,0 +1,7 @@
+- Ctrl+Shift+arrow: For coppying line
+- Ctrl+W: Close Files
+- Ctrl+B: Tab for files
+- Ctrl+P: Search for Files
+- Alt+arrow: to move line
+- Ctrl+Shift+P: Command Palette
+- 

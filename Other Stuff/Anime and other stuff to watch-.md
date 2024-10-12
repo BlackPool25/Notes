@@ -1,0 +1,8 @@
+- Asobi Asobase
+- Dandadan
+- nichijou
+- All of us are dead
+- Like a butterfly
+- Kaguya Sama
+- matcha made in heaven
+- Spy X Family
