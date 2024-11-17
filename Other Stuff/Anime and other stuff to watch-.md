@@ -7,3 +7,4 @@
 - matcha made in heaven
 - Spy X Family
 - Magus Bride
+- Lucky Bhaskar
