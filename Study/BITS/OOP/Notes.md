@@ -184,3 +184,398 @@
 ---
 
 [End of Notes, Message #1]
+
+**Subject:** _Week 2 – Java Classes, Objects, Variables, and User Input_
+
+---
+
+### **Java Classes and Objects**
+
+- A **class** is a blueprint defining **attributes (instance variables)** and **behaviors (methods)** of objects.
+    
+- An **object** is an instance of a class with its own values for the attributes defined by the class.
+    
+
+---
+
+### **Defining Classes in Java**
+
+- **Syntax Elements:**
+    
+    - **Access Modifier**: Controls visibility (`public`, `protected`, `default`, `private`).
+        
+    - **class keyword**: Used to define a class.
+        
+    - **ClassName**: Must follow naming conventions (CamelCase, starts with uppercase).
+        
+    - **Instance Variables**: Represent the state of the object.
+        
+    - **Constructors**: Special methods to initialize objects.
+        
+    - **Methods**: Define actions the object can perform.
+        
+
+---
+
+### **Access Modifiers**
+
+1. **public** – Accessible from any class.
+    
+2. **private** – Accessible only within the same class.
+    
+3. **protected** – Accessible within the same package and subclasses.
+    
+4. **default (no modifier)** – Accessible only within the same package.
+    
+
+- **Purpose**: Controls access, enforces **encapsulation**, enhances **modularity** and **security**.
+    
+
+---
+
+### **Constructors in Java**
+
+- **Definition**: Special method, same name as class, no return type.
+    
+- **Automatic Invocation**: Called automatically when object is created using `new`.
+    
+- **Parameterization**: May accept parameters for custom initialization.
+    
+
+#### **Types of Constructors**
+
+1. **Default Constructor**
+    
+    - No parameters.
+        
+    - Provided automatically by compiler if none is defined.
+        
+    - Performs default initialization.
+        
+2. **Parameterized Constructor**
+    
+    - Accepts parameters to assign custom values to instance variables.
+        
+3. **Copy Constructor**
+    
+    - Accepts another object of the same class.
+        
+    - Copies attribute values from the given object to a new one.
+        
+
+---
+
+### **Instance Fields, Methods, and Variables**
+
+- **Instance Fields**: Declared in a class (outside methods); each object gets its own copy.
+    
+- **Methods**: Define object behavior, can manipulate instance fields.
+    
+- **Variables**:
+    
+    - **Local Variables**: Declared inside methods or blocks, exist only within scope.
+        
+
+---
+
+### **Accessing Instance Members**
+
+- Use **dot notation** with the object reference:
+    
+    - `objectName.fieldName`
+        
+    - `objectName.methodName(arguments)`
+        
+
+---
+
+### **Class vs. Instance Variables**
+
+- **Class Variables (Static)**
+    
+    - Declared using `static`.
+        
+    - Belong to the class, shared by all objects.
+        
+    - Accessed via class name (e.g., `ClassName.variableName`).
+        
+- **Instance Variables**
+    
+    - Unique to each object.
+        
+    - Accessed using object references.
+        
+
+#### **Key Differences**
+
+- **Memory**: Class – shared memory; Instance – separate memory per object.
+    
+- **Access**: Class – via class name; Instance – via object.
+    
+- **Scope**: Class – global to all instances; Instance – local to object.
+    
+- **Initialization**: Class – at declaration/static block; Instance – in constructors.
+    
+
+---
+
+### **Mutable vs. Immutable Objects**
+
+- **Mutable Objects**
+    
+    - State **can be modified** after creation.
+        
+    - May lead to **data inconsistency** in multithreaded environments.
+        
+- **Immutable Objects**
+    
+    - State **cannot be changed** once created.
+        
+    - Offer **data integrity**, **thread safety**, and **predictability**.
+        
+    - Preferred when immutability aligns with requirements (e.g., in collections).
+        
+
+---
+
+### **User Input and Command-Line Arguments**
+
+#### **Command-Line Arguments**
+
+- Passed during program execution.
+    
+- Accessed using the **args[]** parameter in `main(String[] args)`.
+    
+- All arguments are treated as **Strings**.
+    
+
+#### **Scanner Class (from java.util package)**
+
+- Reads input from sources like **console**, **files**, or **strings**.
+    
+- Requires creation of a `Scanner` object (e.g., `Scanner sc = new Scanner(System.in);`).
+    
+- **Common Methods**:
+    
+    - `nextLine()` – Reads a line of text as `String`
+        
+    - `nextInt()` – Reads an `int`
+        
+    - `nextDouble()` – Reads a `double`
+        
+    - `nextBoolean()` – Reads a `boolean`
+        
+- Always **close Scanner** after use: `scanner.close();`
+    
+- Handle **exceptions** (e.g., `InputMismatchException`) using try-catch.
+    
+
+---
+
+[End of Notes, Message #2]
+
+**Subject:** _Week 3 – Java Static, Final, Overloading, Object Passing, and Arrays_
+
+---
+
+### **Static Keyword**
+
+- **static** associates members (variables/methods) with the **class** instead of instances.
+    
+- **Static elements** are initialized once and shared across all objects.
+    
+- **Access**: Can be accessed using the **class name**.
+    
+
+#### **Static Variables**
+
+- Shared among all instances.
+    
+- Defined using the `static` keyword.
+    
+- Example: `Counter.count` is incremented each time an object is created → shared across objects.
+    
+
+#### **Static Methods**
+
+- Belong to the class, not instances.
+    
+- Accessed using the class name.
+    
+- Can only access **static** members directly (not instance variables).
+    
+- Example: `Calculator.add()`.
+    
+
+---
+
+### **Final Keyword**
+
+- Used to prevent **modification** of variables, methods, or classes.
+    
+
+#### **Final Variables**
+
+- Once assigned, their value **cannot change**.
+    
+- Must be initialized at declaration or in a constructor.
+    
+- Behave as **constants**.
+    
+
+#### **Final Methods**
+
+- Cannot be **overridden** by subclasses.
+    
+- Preserve method behavior across inheritance.
+    
+
+#### **Final Classes**
+
+- Cannot be **extended** (subclassed).
+    
+- Represents a **leaf class** in inheritance.
+    
+
+---
+
+### **Method Overloading**
+
+- Multiple methods with the **same name** but **different parameter lists**.
+    
+- Differ by:
+    
+    - **Number** of parameters.
+        
+    - **Type** of parameters.
+        
+- Allows flexibility in method usage.
+    
+- Example:
+    
+    ```java
+    add(int, int)
+    add(double, double)
+    add(int, int, int)
+    ```
+    
+
+---
+
+### **Constructor Overloading**
+
+- Multiple constructors with **different parameter lists** in the same class.
+    
+- Used to initialize objects with different sets of data.
+    
+
+#### Example – `Car` Class:
+
+1. No-arg constructor → default values.
+    
+2. Two-arg constructor → brand, model.
+    
+3. Three-arg constructor → brand, model, year.
+    
+
+---
+
+### **Objects as Parameters and Return Types**
+
+#### **Passing Objects as Parameters**
+
+- Passes a **reference** to the object.
+    
+- Allows method to **access and modify** object’s state.
+    
+- Promotes **modularity** and **reusability**.
+    
+
+#### Example:
+
+- `RectangleUtils.calculateArea(Rectangle rect)` computes area using passed object.
+    
+
+#### **Returning Objects from Methods**
+
+- A method can **return** an object as output.
+    
+- Enables encapsulation of data/behavior within returned object.
+    
+- Example:
+    
+    ```java
+    RectangleUtils.createRectangle(length, width) → returns Rectangle object
+    ```
+    
+
+---
+
+### **Arrays in Java**
+
+#### **1-D Arrays**
+
+- Stores multiple elements of the same type in a **linear sequence**.
+    
+- **Declaration & Initialization**:
+    
+    ```java
+    int[] numbers = new int[5];
+    ```
+    
+- **Element Access**:
+    
+    ```java
+    numbers[0] = 10;
+    ```
+    
+- **Array Length**: `numbers.length`
+    
+- **Iteration**: Use a `for` loop to traverse.
+    
+
+#### **2-D Arrays**
+
+- Matrix-like structure: **array of arrays**.
+    
+- **Declaration & Initialization**:
+    
+    ```java
+    int[][] grid = new int[3][4];
+    ```
+    
+- **Alternative**:
+    
+    ```java
+    int[][] grid = {
+      {1, 2, 3, 4},
+      {5, 6, 7, 8},
+      {9, 10, 11, 12}
+    };
+    ```
+    
+- **Access**: `grid[row][col]`
+    
+- **Iteration**: Use **nested loops** for row and column traversal.
+    
+
+---
+
+### **java.util.Arrays Class – Utility Methods**
+
+1. **sort(array)** – Sorts in ascending order.
+    
+2. **binarySearch(array, value)** – Returns index of element (must be sorted).
+    
+3. **fill(array, value)** – Fills all elements with specified value.
+    
+4. **copyOf(array, newLength)** – Copies array to a new array of specified length.
+    
+5. **equals(arr1, arr2)** – Compares two arrays for equality.
+    
+6. **toString(array)** – Converts array to a string representation.
+    
+
+---
+
+[End of Notes, Message #3]
